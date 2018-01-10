@@ -38,15 +38,26 @@
 
 		{% endfor %}
 
-		//console.log({{frequency}})
+		width = "100%"
+		height = "100%"
 
-		// Create data array of values to visualize
-		//var dataArray = [23, 13, 21, 14, 37, 15, 18, 34, 30];
 
 		// Create variable for the SVG
 		var svg = d3.select("body").append("svg")
-		          .attr("height","100%")
-		          .attr("width","100%");
+		          .attr("height", height)
+		          .attr("width", width);
+
+		var heightScale = d3.scale.linear()
+							.domain([0, Math.max.apply(Math, dataArray)])
+							.range([0, height])
+
+		var widthScale = d3.scale.linear()
+							.domain([0, Math.max.apply(Math, dataArray)])
+							.range([0, width])
+
+		var colorScale = d3.scale.linear()
+							.domain([0, Math.max.apply(Math, dataArray)])
+							.range(["green", "red"])
 
 		// Select, append to SVG, and add attributes to rectangles for bar chart
 		svg.selectAll("rect")
@@ -54,10 +65,9 @@
 		    .enter().append("rect")
 		          .attr("class", "bar")
 		          .attr("height", function(d, i) {return (d * 10)})
-		          .attr("width","40")
+		          .attr("width", 40)
 		          .attr("x", function(d, i) {return (i * 60) + 25})
 		          .attr("y", function(d, i) {return 400 - (d * 10)});
-
 		// Select, append to SVG, and add attributes to text
 		svg.selectAll("text")
 		    .data(dataArray)

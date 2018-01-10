@@ -37,6 +37,12 @@ def data():
 
 	return render_template('data.html', frequency=freql)
 
+@app.route("/graph")
+
+def graph():
+
+	return render_template("graph.html")
+
 if __name__ == '__main__':
 
     app.run()

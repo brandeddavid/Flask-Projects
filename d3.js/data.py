@@ -2,6 +2,26 @@ import csv, json
 
 calleeNumbers = []
 freq = []
+jsonObject = []
+
+def toJson():
+
+	with open("210.csv", "r") as file:
+
+		reader = csv.reader(file, delimiter=',')
+
+		details = {}
+
+		for item in reader:
+
+			details['phoneNumber'] = item[1]
+			details["callType"] = item[4]
+
+			jsonObject.append(details)
+
+		jsonObject = json.dumps(jsonObject)
+
+		return jsonObject
 
 def callee():
 

@@ -2,13 +2,21 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock %}</title>
-	<script src="https://d3js.org/d3.v3.js"></script>
+
+	{% block script %}{% endblock %}	
 </head>
 <body>
 
+
 	{% block body %}
 
+
 	{% endblock %}
+	
 
 </body>
+	<script src="https://d3js.org/d3.v3.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.6/cytoscape.min.js"></script>
+	{% block aft %}{% endblock %}
+	<!--<script type="text/javascript" src ="/static/js/graph.js"></script>-->
 </html>
