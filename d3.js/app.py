@@ -2,18 +2,11 @@ from flask import Flask, render_template
 from data import *
 import json
 
-freq = totalFrequency(callee())
+data = toJson()
 
-freq = json.loads(freq)
-#print (freq)
+data =  json.loads(data)
 
-freql = []
-
-for item in freq[0].keys():
-
-	freql.append(freq[0][item])
-
-print (freql)
+print (type(data))
 
 app = Flask(__name__)
 
@@ -35,13 +28,13 @@ def shapes():
 
 def data():
 
-	return render_template('data.html', frequency=freql)
+	return render_template('data.html')
 
 @app.route("/graph")
 
 def graph():
 
-	return render_template("graph.html")
+	return render_template("graph.html", data=data)
 
 if __name__ == '__main__':
 

@@ -9,6 +9,18 @@
 
 {% block body %}
 
+	<p>Hello There</p>
+
+	{for item in data}
+		<p>{{item}}</p>
+
+	{ endfor }
+
+
+	<script>
+		console.log(data)
+	</script>
+
 	<div id="cy" style = "height: 500px; width: 500px" ></div>
 
 {% endblock %}
@@ -21,7 +33,7 @@
 
 		  elements: [ // list of graph elements to start with
 		    { // node a
-		      data: { id: 'a' }
+		      data: { id: 'a'}
 		    },
 		    { // node b
 		      data: { id: 'b' }

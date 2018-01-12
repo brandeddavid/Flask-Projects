@@ -2,9 +2,11 @@ import csv, json
 
 calleeNumbers = []
 freq = []
-jsonObject = []
+
 
 def toJson():
+
+	jsonObject = {"POI": "201", "calldetails":[]}
 
 	with open("210.csv", "r") as file:
 
@@ -17,11 +19,13 @@ def toJson():
 			details['phoneNumber'] = item[1]
 			details["callType"] = item[4]
 
-			jsonObject.append(details)
+			jsonObject["calldetails"].append(details)
+
+			details = {}
 
 		jsonObject = json.dumps(jsonObject)
 
-		return jsonObject
+	return jsonObject
 
 def callee():
 

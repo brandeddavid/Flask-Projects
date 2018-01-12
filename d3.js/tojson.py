@@ -19,5 +19,7 @@ with open("210.csv", "r") as file:
 
 	jsonObject = json.dumps(jsonObject)
 
-print (jsonObject)
+jsonObject = json.loads(jsonObject)
+
+print (type(jsonObject))
 
